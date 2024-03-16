@@ -1,9 +1,7 @@
-// Importa a classe Bd do módulo localStorageModule.js
-import Bd from "./localStorageModule.js";
+import { recuperarDados, removerDados } from "./localStorageModule.js";
+import attValores from "./calculo.js";
 
 const tabelaElemento = document.querySelector("#tabelaValores");
-
-const bd = new Bd();
 
 // Função para formar um item na tabela a partir dos dados fornecidos
 function formarItem({ id, valor, descricao, tipo }) {
@@ -33,8 +31,7 @@ function formarItem({ id, valor, descricao, tipo }) {
 function formarLista() {
   try {
     // Recupera os dados do armazenamento local ou cria um array vazio se não houver dados
-    const dados = bd.recuperarDados() || [];
-    console.log(dados);
+    const dados = recuperarDados() || [];
 
     // Itera sobre os dados e chama a função formarItem para cada item
     dados.forEach((item) => {
@@ -53,7 +50,8 @@ function apagarLinha(el, id) {
   // dois parentElement, um é da celular e outro é a linha
   const linha = el.parentElement.parentElement;
   linha.remove();
-  bd.removerDados(id);
+  removerDados(id);
+  attValores();
 }
 
 export default formarItem;

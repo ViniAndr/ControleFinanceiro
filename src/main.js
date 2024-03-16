@@ -1,7 +1,6 @@
 import formarItem from "./assets/modules/formarTabela.js";
-import Bd from "./assets/modules/localStorageModule.js";
-
-const bd = new Bd();
+import attValores from "./assets/modules/calculo.js";
+import * as storage from "./assets/modules/localStorageModule.js";
 
 const container = document.querySelector(".container");
 const btnFrom = document.querySelector("#btnFrom");
@@ -43,14 +42,15 @@ function salvarDados() {
   }
 
   const obj = {
-    id: bd.getProximoId(),
+    id: storage.getProximoId(),
     valor,
     descricao,
     tipo,
   };
 
-  bd.salvar(obj);
+  storage.salvar(obj);
   formarItem(obj);
+  attValores();
 
   inputValor.value = "";
   inputDescricao.value = "";
