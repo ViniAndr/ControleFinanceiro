@@ -34,6 +34,7 @@ function formarLista() {
   try {
     // Recupera os dados do armazenamento local ou cria um array vazio se não houver dados
     const dados = bd.recuperarDados() || [];
+    console.log(dados);
 
     // Itera sobre os dados e chama a função formarItem para cada item
     dados.forEach((item) => {
