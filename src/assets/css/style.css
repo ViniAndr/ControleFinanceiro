@@ -1,0 +1,162 @@
+/* Importação de fonte */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+/* Reset de estilos e configuração de fonte padrão */
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Layout principal */
+.container {
+  width: 80vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.2s; /* Transição suave para elementos na página */
+}
+
+/* Efeito de desfoque quando o modal está ativo */
+.containerDisab {
+  filter: blur(4px);
+}
+
+/* Estilos para os cards */
+.sectionCards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 25px 0;
+}
+.sectionCards div {
+  flex: 1;
+}
+
+/* Estilos para os cards individuais */
+.cardValor {
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  color: #fff;
+  border-radius: 3px;
+}
+
+/* Cores dos cards */
+.verde {
+  background-color: #3cb371;
+}
+.vermelho {
+  background-color: #ff6347;
+}
+.azul {
+  background-color: #4169e1;
+}
+
+/* Estilos para a tabela */
+table {
+  border: 1px solid #eee;
+  border-collapse: collapse;
+  max-width: 992px;
+  text-align: left;
+  width: 100%;
+}
+td,
+th {
+  padding: 10px;
+}
+tbody tr:nth-child(odd) {
+  background-color: #f6f6f6;
+}
+
+/* Estilos para o botão de remover */
+.alinhaBtnRemover {
+  text-align: right;
+}
+.btnRemover,
+.btn {
+  padding: 10px 15px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.btnRemover {
+  background-color: #ff6347;
+}
+.btnRemover:hover {
+  background-color: #f54545;
+}
+.btn {
+  background-color: #4169e1;
+}
+.btn:hover {
+  background-color: #3c5ec4;
+}
+
+/* Estilos para o botão flutuante de adicionar */
+#btnFrom {
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  font-size: 2rem;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4169e1;
+  transition: background-color 0.2s;
+}
+#btnFrom:hover {
+  background-color: #3c5ec4;
+}
+
+/* Estilos para o modal */
+.modal {
+  display: none;
+  position: absolute;
+  top: calc(50vh - 128px);
+  left: calc(50vw - 130px);
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 260px;
+  padding: 20px;
+  transition: 0.2s;
+}
+.modalAtivado {
+  display: block;
+}
+
+/* Estilos para os elementos dentro do modal */
+.modal label {
+  opacity: 0.8;
+  font-size: 0.8rem;
+}
+.inputDeCampo input {
+  display: block;
+  margin-bottom: 5px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  width: 100%;
+}
+.inputsRadio {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+.inputsRadio div {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.grupoBtn {
+  display: flex;
+  justify-content: space-around;
+}

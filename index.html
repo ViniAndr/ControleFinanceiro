@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gastos Financeiros</title>
+    <link rel="stylesheet" href="src/assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Container principal -->
+    <div class="container">
+      <h1>Controle Financeiro</h1>
+
+      <!-- Seção dos cartões de saldo -->
+      <section class="sectionCards">
+        <!-- Cartão de saldo de entradas -->
+        <div class="cardValor verde">
+          <div>
+            <p class="tituloCard">Entradas</p>
+          </div>
+          <!-- Saldo de entradas -->
+          <h2 class="valorCard" id="valorEntrada">R$1000,00</h2>
+        </div>
+
+        <!-- Cartão de saldo de saídas -->
+        <div class="cardValor vermelho">
+          <div>
+            <p class="tituloCard">Saídas</p>
+          </div>
+          <!-- Saldo de saídas -->
+          <h2 class="valorCard" id="valorSaida">R$1000,00</h2>
+        </div>
+
+        <!-- Cartão de saldo do balanço -->
+        <div class="cardValor azul">
+          <div>
+            <p class="tituloCard">Balanço</p>
+          </div>
+          <!-- Balanço total -->
+          <h2 class="valorCard" id="balanco">R$1000,00</h2>
+        </div>
+      </section>
+
+      <!-- Tabela de valores -->
+      <table>
+        <thead>
+          <!-- Cabeçalho da tabela -->
+          <tr>
+            <th>Valor R$</th>
+            <th>Descrição</th>
+            <th>Tipo</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaValores">
+          <!-- Linhas serão adicionadas aqui dinamicamente -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Botão para abrir o modal -->
+    <button id="btnFrom">+</button>
+
+    <!-- Modal para adicionar novos valores -->
+    <div class="modal">
+      <div class="inputDeCampo">
+        <label for="valor">Valor</label>
+        <!-- Campo de entrada para valor -->
+        <input id="valor" type="number" placeholder="Valor em R$" required />
+      </div>
+      <div class="inputDeCampo">
+        <label for="descricao">Descrição</label>
+        <!-- Campo de entrada para descrição -->
+        <input id="descricao" type="text" placeholder="Descreva" required />
+      </div>
+      <div class="inputsRadio">
+        <!-- Opções de entrada ou saída -->
+        <div>
+          <input type="radio" name="tipo" id="entrada" checked />
+          <label for="entrada">Entrada</label>
+        </div>
+        <div>
+          <input type="radio" name="tipo" id="saida" />
+          <label for="saida">Saída</label>
+        </div>
+      </div>
+      <!-- Botões para adicionar ou cancelar ação -->
+      <div class="grupoBtn">
+        <button id="btnAdicionar" class="btn">Adicionar</button>
+        <button id="btnCancelar" class="btn">Cancelar</button>
+      </div>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
