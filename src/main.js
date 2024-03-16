@@ -1,6 +1,8 @@
 import formarItem from "./assets/modules/formarTabela.js";
 import Bd from "./assets/modules/localStorageModule.js";
 
+const bd = new Bd();
+
 const container = document.querySelector(".container");
 const btnFrom = document.querySelector("#btnFrom");
 const modal = document.querySelector(".modal");
@@ -12,13 +14,8 @@ const inputSaida = document.querySelector("#saida");
 
 document.addEventListener("click", (e) => {
   const elementoHtml = e.target;
-  // reduzir a condição if
-  const btnRemover = elementoHtml.classList.contains("btnRemover");
-  const containerDisab = container.classList.contains("containerDisab");
 
-  if (btnRemover && !containerDisab) {
-    apagarLinha(elementoHtml);
-  } else if (elementoHtml == btnFrom) {
+  if (elementoHtml == btnFrom) {
     ativarModal();
   } else if (elementoHtml == btnCancelar) {
     saiModal();
@@ -27,11 +24,6 @@ document.addEventListener("click", (e) => {
   }
 });
 
-function apagarLinha(el) {
-  // dois parentElement, um é da celular e outro é a linha
-  const linha = el.parentElement.parentElement;
-  linha.remove();
-}
 function ativarModal() {
   modal.classList.toggle("modalAtivado");
   container.classList.toggle("containerDisab");
@@ -51,12 +43,12 @@ function salvarDados() {
   }
 
   const obj = {
+    id: bd.getProximoId(),
     valor,
     descricao,
     tipo,
   };
 
-  const bd = new Bd();
   bd.salvar(obj);
   formarItem(obj);
 

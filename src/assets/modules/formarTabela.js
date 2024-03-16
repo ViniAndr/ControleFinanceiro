@@ -6,7 +6,7 @@ const tabelaElemento = document.querySelector("#tabelaValores");
 const bd = new Bd();
 
 // Função para formar um item na tabela a partir dos dados fornecidos
-function formarItem({ valor, descricao, tipo }) {
+function formarItem({ id, valor, descricao, tipo }) {
   // Insere uma nova linha na tabela
   const linha = tabelaElemento.insertRow();
 
@@ -23,6 +23,9 @@ function formarItem({ valor, descricao, tipo }) {
   const botaoRemover = document.createElement("button");
   botaoRemover.className = "btnRemover";
   botaoRemover.textContent = "Remover";
+  botaoRemover.addEventListener("click", () => {
+    apagarLinha(botaoRemover, id);
+  });
   celulaAcao.appendChild(botaoRemover);
 }
 
@@ -44,5 +47,12 @@ function formarLista() {
 
 // Chama a função formarLista no carregar da página
 formarLista();
+
+function apagarLinha(el, id) {
+  // dois parentElement, um é da celular e outro é a linha
+  const linha = el.parentElement.parentElement;
+  linha.remove();
+  bd.removerDados(id);
+}
 
 export default formarItem;
