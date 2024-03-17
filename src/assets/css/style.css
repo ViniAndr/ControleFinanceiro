@@ -8,11 +8,16 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+body {
+  background-color: #212121; /* Cor de fundo mais escura */
+  color: #fff; /* Cor do texto */
+}
 
 /* Layout principal */
 .container {
   width: 80vw;
   margin: auto;
+  margin-top: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,18 +54,20 @@
 
 /* Cores dos cards */
 .verde {
-  background-color: #3cb371;
+  background-color: #4caf50;
 }
+
 .vermelho {
-  background-color: #ff6347;
+  background-color: #f44336;
 }
+
 .azul {
-  background-color: #4169e1;
+  background-color: #1976d2;
 }
 
 /* Estilos para a tabela */
 table {
-  border: 1px solid #eee;
+  border: 1px solid #444;
   border-collapse: collapse;
   max-width: 992px;
   text-align: left;
@@ -71,7 +78,7 @@ th {
   padding: 10px;
 }
 tbody tr:nth-child(odd) {
-  background-color: #f6f6f6;
+  background-color: #333;
 }
 
 /* Estilos para o botão de remover */
@@ -87,16 +94,19 @@ tbody tr:nth-child(odd) {
   border-radius: 3px;
 }
 .btnRemover {
-  background-color: #ff6347;
+  background-color: #f44336;
 }
+
 .btnRemover:hover {
-  background-color: #f54545;
+  background-color: #b71c1c;
 }
+
 .btn {
-  background-color: #4169e1;
+  background-color: #1976d2;
 }
+
 .btn:hover {
-  background-color: #3c5ec4;
+  background-color: #1565c0;
 }
 
 /* Estilos para o botão flutuante de adicionar */
@@ -109,11 +119,11 @@ tbody tr:nth-child(odd) {
   position: absolute;
   bottom: 20px;
   right: 20px;
-  background-color: #4169e1;
+  background-color: #1976d2;
   transition: background-color 0.2s;
 }
 #btnFrom:hover {
-  background-color: #3c5ec4;
+  background-color: #1565c0;
 }
 
 /* Estilos para o modal */
@@ -122,9 +132,9 @@ tbody tr:nth-child(odd) {
   position: absolute;
   top: calc(50vh - 128px);
   left: calc(50vw - 130px);
-  background-color: #fff;
+  background-color: #333;
   border-radius: 3px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   width: 260px;
   padding: 20px;
   transition: 0.2s;
@@ -142,9 +152,14 @@ tbody tr:nth-child(odd) {
   display: block;
   margin-bottom: 5px;
   border-radius: 3px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 5px;
   width: 100%;
+  background-color: #444;
+  color: #fff;
+}
+.inputDeCampo input:focus {
+  outline: none;
 }
 .inputsRadio {
   display: flex;
