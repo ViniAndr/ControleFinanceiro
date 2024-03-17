@@ -10,6 +10,7 @@ const btnCancelar = document.querySelector("#btnCancelar");
 const inputValor = document.querySelector("#valor");
 const inputDescricao = document.querySelector("#descricao");
 const inputSaida = document.querySelector("#saida");
+const inputData = document.querySelector("#data");
 
 document.addEventListener("click", (e) => {
   const elementoHtml = e.target;
@@ -36,15 +37,16 @@ function salvarDados() {
   const valor = Number(inputValor.value);
   const descricao = inputDescricao.value;
   const tipo = inputSaida.checked ? "Saida" : "Entrada";
+  const data = inputData.value;
 
-  if (valor <= 0 || descricao === "") {
+  if (valor <= 0 || descricao === "" || data == "") {
     return;
   }
-
   const obj = {
     id: storage.getProximoId(),
     valor,
     descricao,
+    data: formatarData(data),
     tipo,
   };
 
@@ -54,4 +56,10 @@ function salvarDados() {
 
   inputValor.value = "";
   inputDescricao.value = "";
+}
+
+function formatarData(data) {
+  const [ano, mes, dia] = data.split("-");
+  const dataFormatada = `${dia}/${mes}/${ano}`;
+  return dataFormatada;
 }

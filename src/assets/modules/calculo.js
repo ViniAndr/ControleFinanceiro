@@ -20,9 +20,9 @@ function calcularBalanco() {
 }
 
 export default function atualizarValores() {
-  entradasElemento.textContent = calcularTotal("Entrada");
-  saidasElemento.textContent = calcularTotal("Saida");
-  balancoElemento.textContent = calcularBalanco();
+  entradasElemento.textContent = `R$${calcularTotal("Entrada")}`;
+  saidasElemento.textContent = `R$${calcularTotal("Saida")}`;
+  balancoElemento.textContent = `R$${calcularBalanco()}`;
 }
 
 atualizarValores();

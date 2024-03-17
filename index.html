@@ -63,15 +63,27 @@
 
     <!-- Modal para adicionar novos valores -->
     <div class="modal">
-      <div class="inputDeCampo">
-        <label for="valor">Valor</label>
-        <!-- Campo de entrada para valor -->
-        <input id="valor" type="number" placeholder="Valor em R$" required />
-      </div>
-      <div class="inputDeCampo">
-        <label for="descricao">Descrição</label>
-        <!-- Campo de entrada para descrição -->
-        <input id="descricao" type="text" placeholder="Descreva" required />
+      <div class="coolinput">
+        <label for="valor" class="text">Valor:</label>
+        <input
+          type="number"
+          placeholder="Digite aqui..."
+          name="valor"
+          id="valor"
+          class="input"
+          autocomplete="off"
+        />
+        <label for="descricao" class="text">Descrição:</label>
+        <input
+          type="text"
+          placeholder="Digite aqui..."
+          name="descricao"
+          id="descricao"
+          class="input"
+          autocomplete="off"
+        />
+        <label for="data" class="text">Data:</label>
+        <input type="date" name="data" id="data" class="input" />
       </div>
       <div class="inputsRadio">
         <!-- Opções de entrada ou saída -->
