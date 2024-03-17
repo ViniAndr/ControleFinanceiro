@@ -5,6 +5,7 @@ const tabelaElemento = document.querySelector("#tabelaValores");
 
 // Função para formar um item na tabela a partir dos dados fornecidos
 function formarItem({ id, valor, descricao, tipo }) {
+  const data = new Date();
   // Insere uma nova linha na tabela
   const linha = tabelaElemento.insertRow();
 
@@ -12,9 +13,10 @@ function formarItem({ id, valor, descricao, tipo }) {
   linha.insertCell(0).textContent = `R$ ${valor.toFixed(2)}`;
   linha.insertCell(1).textContent = descricao;
   linha.insertCell(2).textContent = tipo;
+  linha.insertCell(3).textContent = formatarData(data);
 
   // Adiciona uma célula para ação (botão de remover) na linha
-  const celulaAcao = linha.insertCell(3);
+  const celulaAcao = linha.insertCell(4);
   celulaAcao.classList.add("alinhaBtnRemover");
 
   // Cria o botão de remover e o adiciona à célula de ação
@@ -54,4 +56,12 @@ function apagarLinha(el, id) {
   attValores();
 }
 
+function formatarData(data) {
+  const dia = data.getDay() < 10 ? `0${data.getDay()}` : data.getDay();
+  const mes =
+    data.getMonth() < 10 ? `0${data.getMonth() + 1}` : data.getMonth() + 1;
+  const ano = data.getYear();
+
+  return `${dia}/${mes}/${ano}`;
+}
 export default formarItem;
