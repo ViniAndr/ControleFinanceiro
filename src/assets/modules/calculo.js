@@ -1,11 +1,8 @@
-import { recuperarDados } from "./localStorageModule.js";
-
-const entradasElemento = document.querySelector("#valorEntrada");
-const saidasElemento = document.querySelector("#valorSaida");
-const balancoElemento = document.querySelector("#balanco");
+import { recuperarItens } from "./localStorageModule.js";
+import { atualizarValores } from "./domManipulacao.js";
 
 function calcularTotal(tipo) {
-  const dados = recuperarDados();
+  const dados = recuperarItens();
   const total = dados
     .filter((d) => d.tipo === tipo)
     .reduce((total, item) => total + item.valor, 0);
@@ -19,10 +16,10 @@ function calcularBalanco() {
   return balanco.toFixed(2);
 }
 
-export default function atualizarValores() {
-  entradasElemento.textContent = `R$${calcularTotal("Entrada")}`;
-  saidasElemento.textContent = `R$${calcularTotal("Saida")}`;
-  balancoElemento.textContent = `R$${calcularBalanco()}`;
+export function cardValores() {
+  atualizarValores(
+    calcularTotal("Entrada"),
+    calcularTotal("Saida"),
+    calcularBalanco()
+  );
 }
-
-atualizarValores();

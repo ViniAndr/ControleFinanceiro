@@ -1,6 +1,6 @@
 // Função para obter o próximo ID disponível
-function getProximoId() {
-  const itens = recuperarDados();
+export function getProximoId() {
+  const itens = recuperarItens();
 
   // Cria um conjunto com todos os IDs existentes, para evitar repetições.
   const idsExistentes = new Set(itens.map((item) => parseInt(item.id)));
@@ -15,14 +15,14 @@ function getProximoId() {
 }
 
 // Função para salvar um item no armazenamento local
-function salvar(item) {
+export function salvarNovoitem(item) {
   // Obtém o próximo ID disponível
   let id = getProximoId();
   localStorage.setItem(id, JSON.stringify(item));
 }
 
 // Função para recuperar todos os dados do armazenamento local
-function recuperarDados() {
+export function recuperarItens() {
   // Consigo pegar todas as chaves do meu localStorage e converto para número, ex: (2, 4)
   const keys = Object.keys(localStorage).map(Number);
   const itens = [];
@@ -43,9 +43,10 @@ function recuperarDados() {
 }
 
 // Função para remover um item do armazenamento local
-function removerDados(id) {
+export function removerItem(id) {
   localStorage.removeItem(id);
 }
 
-// Exportando as funções como padrão
-export { getProximoId, salvar, recuperarDados, removerDados };
+export function atualizarItem(id, item) {
+  localStorage.setItem(id, JSON.stringify(item));
+}
